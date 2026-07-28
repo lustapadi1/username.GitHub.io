@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteRide Rentals – Cars, Buses & Exclusive Escort Service</title>
+    <!-- Font Awesome 6 for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        /* Header / Hero */
+        header {
+            background: linear-gradient(135deg, #0a1f3f 0%, #1e3c72 100%);
+            color: white;
+            padding: 40px 20px 60px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        header h1 i {
+            color: #f9c74f;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .cta-btn {
+            background: #f9c74f;
+            color: #0a1f3f;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .cta-btn:hover {
+            background: #f4b41a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Fleet Section */
+        .fleet-section {
+            padding: 60px 20px;
+            background: white;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #f9c74f;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        .vehicle-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+        .vehicle-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            width: 280px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #eef2f6;
+        }
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+        }
+        .vehicle-img {
+            height: 180px;
+            background: #e9eff7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: #1e3c72;
+        }
+        .vehicle-details {
+            padding: 20px;
+        }
+        .vehicle-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .vehicle-details .seats {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        .vehicle-details .seats i {
+            color: #f9c74f;
+        }
+        .badge {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #1e3c72;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        .escort-badge {
+            background: #fceabb;
+            color: #8a6300;
+        }
+
+        /* How It Works / Exclusive Escort */
+        .how-it-works {
+            padding: 60px 20px;
+            background: #f0f4fa;
+        }
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .step {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 25px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .step i {
+            font-size: 2.2rem;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        .step h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Booking Form */
+        .booking-section {
+            padding: 60px 20px;
+            background: white;
+        }
+        .booking-form {
+            max-width: 800px;
+            margin: 30px auto 0;
+            background: #f9fbfd;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .full-width {
+            grid-column: span 2;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: #1e3c72;
+        }
+        input, select {
+            padding: 12px 15px;
+            border: 1px solid #dde3ed;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: 0.2s;
+            outline: none;
+        }
+        input:focus, select:focus {
+            border-color: #f9c74f;
+            box-shadow: 0 0 0 3px rgba(249,199,79,0.25);
+        }
+        .checkbox-group {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            grid-column: span 2;
+        }
+        .checkbox-group input {
+            width: 18px;
+            height: 18px;
+        }
+        .submit-btn {
+            grid-column: span 2;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background: #0a1f3f;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1f3f;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            .full-width, .checkbox-group, .submit-btn {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-car-side"></i> EliteRide Rentals</h1>
+            <p>Premium cars & high-capacity buses with <strong>exclusive escort</strong> service. Choose your <strong>From → To</strong> and travel in comfort.</p>
+            <a href="#book" class="cta-btn">Book Your Ride Now</a>
+        </div>
+    </header>
+
+    <!-- Fleet Section -->
+    <section class="fleet-section" id="fleet">
+        <div class="container">
+            <h2 class="section-title">Our Diverse Fleet</h2>
+            <div class="vehicle-grid">
+                <!-- Car 1 -->
+                <div class="vehicle-card">
+                    <div class="vehicle-img"><i class="fas fa-car"></i></div>
+                    <div class="vehicle-details">
+                        <h3>Executive Sedan</h3>
+                        <div class="seats"><i class="fas fa-user"></i> 4 Seats</div>
+                        <span class="badge">Luxury</span>
+                        <p>Perfect for corporate or private point‑to‑point transfers.</p>
+                    </div>
+                </div>
+                <!-- SUV -->
+                <div class="vehicle-card">
+                    <div class="vehicle-img"><i class="fas fa-truck-monster"></i></div>
+                    <div class="vehicle-details">
+                        <h3>Premium SUV</h3>
+                        <div class="seats"><i class="fas fa-users"></i> 7 Seats</div>
+                        <span class="badge">Spacious</span>
+                        <p>Ideal for families with luggage and long journeys.</p>
+                    </div>
+                </div>
+                <!-- Minibus -->
+                <div class="vehicle-card">
+                    <div class="vehicle-img"><i class="fas fa-bus"></i></div>
+                    <div class="vehicle-details">
+                        <h3>Comfort Minibus</h3>
+                        <div class="seats"><i class="fas fa-users"></i> 15 Seats</div>
+                        <span class="badge">Group Friendly</span>
+                        <p>Great for small groups or shuttle services.</p>
+                    </div>
+                </div>
+                <!-- Full-size Bus -->
+                <div class="vehicle-card">
+                    <div class="vehicle-img"><i class="fas fa-bus-alt"></i></div>
+                    <div class="vehicle-details">
+                        <h3>Tourist Coach</h3>
+                        <div class="seats"><i class="fas fa-users"></i> 30-50 Seats</div>
+                        <span class="badge">High Capacity</span>
+                        <p>Full-sized bus for events, tours, or large group transfers.</p>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center; margin-top:25px;"><i class="fas fa-shield-alt"></i> All vehicles come with professional, vetted drivers.</p>
+        </div>
+    </section>
+
+    <!-- How it works + Exclusive Escort -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Exclusive Escort, Point‑to‑Point</h2>
+            <p style="text-align:center; max-width:600px; margin:auto;">Our exclusive escort means a dedicated driver/attendant stays with you for the entire journey, ensuring privacy, safety, and personalized service from your <strong>designated pick‑up</strong> to your <strong>drop‑off</strong>.</p>
+            <div class="steps">
+                <div class="step">
+                    <i class="fas fa-map-pin"></i>
+                    <h4>1. Tell Us Your Route</h4>
+                    <p>Set your exact “From” and “To” locations.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>2. Escort Assigned</h4>
+                    <p>A professional escort/driver is dedicated solely to your trip.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-route"></i>
+                    <h4>3. Enjoy the Ride</h4>
+                    <p>Relax in your chosen car or bus – we handle everything.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-flag-checkered"></i>
+                    <h4>4. Arrive in Style</h4>
+                    <p>Seamless drop‑off at your exact destination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-section" id="book">
+        <div class="container">
+            <h2 class="section-title">Book Your From→To Transfer</h2>
+            <form class="booking-form" id="rentalForm">
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Pick‑up Location (From)</label>
+                    <input type="text" placeholder="City, Airport, Address" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-flag-checkered"></i> Drop‑off Location (To)</label>
+                    <input type="text" placeholder="Hotel, Venue, Address" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="far fa-calendar"></i> Date</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="far fa-clock"></i> Time</label>
+                    <input type="time" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-car"></i> Vehicle Type</label>
+                    <select required>
+                        <option value="">Select vehicle</option>
+                        <option>Executive Sedan (4 seats)</option>
+                        <option>Premium SUV (7 seats)</option>
+                        <option>Comfort Minibus (15 seats)</option>
+                        <option>Tourist Coach (30-50 seats)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-user-friends"></i> Passengers</label>
+                    <input type="number" min="1" max="60" placeholder="Number of people" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="escort" checked>
+                    <label for="escort"><strong>Add Exclusive Escort Service</strong> (dedicated driver/attendant)</label>
+                </div>
+                <button type="submit" class="submit-btn">Request Booking <i class="fas fa-arrow-right"></i></button>
+            </form>
+            <p style="text-align:center; margin-top:15px; font-size:0.9rem; color:#666;">We'll confirm your exclusive point‑to‑point trip within 30 minutes.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-phone-alt"></i> +1 (555) 123-4567 | <i class="fas fa-envelope"></i> info@eliteriderentals.com</p>
+            <p>© 2026 EliteRide Rentals – Cars, Buses & Exclusive Escort Service</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('rentalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! We have received your point-to-point booking request.\nOur exclusive escort team will contact you shortly.');
+            // Here you would normally send data to a backend.
+        });
+    </script>
+</body>
+</html>
